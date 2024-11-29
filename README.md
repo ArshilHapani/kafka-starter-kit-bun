@@ -2,7 +2,7 @@
 
 Kafka is a distributed streaming platform that solves several problems related to real-time data processing, data integration, and event-driven architectures. Here's an introduction to Kafka and the problems it solves:
 
-![Untitled](Kafka%20bccb58300ecf446aa722cbfa4f317a39/Untitled.png)
+![Untitled](assets/Untitled.png)
 
 # Introduction to Apache Kafka
 
@@ -14,7 +14,7 @@ We want to store the data into db in every sec for single user. It will works fo
 
 ---
 
-*Before diving into detail of kafka, first let’s understand the **pub/sub** architecture*
+_Before diving into detail of kafka, first let’s understand the **pub/sub** architecture_
 
 In pub/sub architecture there are two parties
 
@@ -32,16 +32,16 @@ Publisher publishes (produce) the data while subscriber subscribes (consumes) to
 
 ## Kafka vs DB
 
-|  | **Throughput** | **Storage** |
-| --- | --- | --- |
-| **Kafka** | High | Low |
-| **DB** | Low | High |
+|           | **Throughput** | **Storage** |
+| --------- | -------------- | ----------- |
+| **Kafka** | High           | Low         |
+| **DB**    | Low            | High        |
 
 ## Kafka comes in picture
 
 - Kafka have high throughput and temporary storage.
 - It can handles millions of incoming request and perform the bulk insertion between regular interval of time, which leads to efficient use database resources and less number of operations on database.
-- Imagine the application like UBER where there are many drivers which produces the data (like location every  seconds) and users which consumes the data (like location every seconds), During this situation kafka plays the crucial role by handling all database request and perform bulk insertion within certain duration.
+- Imagine the application like UBER where there are many drivers which produces the data (like location every seconds) and users which consumes the data (like location every seconds), During this situation kafka plays the crucial role by handling all database request and perform bulk insertion within certain duration.
 
 # Kafka Internals
 
@@ -57,7 +57,7 @@ Like data splitting, store half data in p1, and half in p2 etc…
 
 It depends on us that in which partition we want to store the data.
 
-![image.png](Kafka%20bccb58300ecf446aa722cbfa4f317a39/image.png)
+![image.png](assets/image.png)
 
 ## Autobalancing
 
@@ -65,9 +65,9 @@ Suppose we have 1 kafka cluster with 1 topics and 4 partitions.
 
 If we have one consumer then by default kafka gives data from all partitions to that single consumer
 
-![image.png](Kafka%20bccb58300ecf446aa722cbfa4f317a39/image%201.png)
+![image.png](assets/image%201.png)
 
-![image.png](Kafka%20bccb58300ecf446aa722cbfa4f317a39/image%202.png)
+![image.png](assets/image%202.png)
 
 If we have 4 consumer then each consumer will consume each partition
 
@@ -75,7 +75,7 @@ If we have 4 consumer then each consumer will consume each partition
 
 Single consumer can consume multiple partition but one partition can only be consumed by 1 consumer
 
-1 consumer (consumes) → multiple partitions 
+1 consumer (consumes) → multiple partitions
 
 1 partition (provide data to only) → 1 consumer
 
@@ -111,4 +111,4 @@ Here we requires infrastructure setup (no of topics, partitions etc…)
 
 - `admin` setups infrastructure
 - `producers` produces message
-- `consumers`  consumes message
+- `consumers` consumes message
